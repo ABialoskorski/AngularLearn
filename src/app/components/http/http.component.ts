@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { HttpServiceService } from '../Service/http-service.service';
 import {Post} from '../Post';
 
@@ -10,13 +10,19 @@ import {Post} from '../Post';
 export class HttpComponent implements OnInit {
 
   @Input() text;
+  @Output() eventText = new EventEmitter<string>();
 
   constructor(private httpService: HttpServiceService) { }
+
   public MyPosts = [];
   public MyPost = '';
   public MyUserPosts = [];
+  public HttpText = 'Tekst pochodzący z Http Component';
 
   ngOnInit() {
+  }
+  sendText() {
+    this.eventText.emit(this.HttpText);
   }
 
   getPosts() {
