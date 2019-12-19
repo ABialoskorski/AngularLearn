@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { HttpServiceService } from '../Service/http-service.service';
 import {Post} from '../Post';
 
@@ -9,11 +9,12 @@ import {Post} from '../Post';
 })
 export class HttpComponent implements OnInit {
 
+  @Input() text;
+
   constructor(private httpService: HttpServiceService) { }
   public MyPosts = [];
   public MyPost = '';
   public MyUserPosts = [];
-
 
   ngOnInit() {
   }
@@ -46,7 +47,12 @@ export class HttpComponent implements OnInit {
 
     this.httpService.addPost(p).subscribe(post => {
       console.log(post);
-      alert('Wysłano post: ' + post.title + ' ' +post.body);
+      alert('Wysłano post: ' + post.title + ' ' + post.body);
     });
+  }
+    deletePost() {
+      this.httpService.deletePost(2).subscribe(post => {
+        console.log(post);
+      });
   }
 }

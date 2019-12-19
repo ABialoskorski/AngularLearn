@@ -31,7 +31,7 @@ export class HttpServiceService {
       return this.http.post(this.url, post);
     }
     deletePost(id: number) {
-
+      return this.http.delete<Post>(this.url + id);
     }
 
 }
