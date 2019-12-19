@@ -1,1 +1,15 @@
-<p>http works!</p>
+<button (click)="getPosts()">getPosts</button>
+<button (click)="getPost()">getPost</button>
+<button (click)="getPostByUser()">getPostByUser</button>
+<button (click)="addPost()">addPost</button>
+<button (click)="deletePost()">deletePost</button>
+<div class="data">
+  <span *ngIf="MyPost != ''">{{MyPost.id}}: {{MyPost.title}}</span>
+  <p *ngIf="MyPost != ''">************************************</p>
+  <ul *ngFor="let post of MyUserPosts">
+    <li>{{post.id}}: {{post.title}}</li>
+  </ul>
+  <ul *ngFor="let post of MyPosts">
+    <li>{{post.id}}: {{post.title}}</li>
+  </ul>
+</div>
