@@ -8,8 +8,18 @@ import {Post} from '../Post';
 })
 export class HttpServiceService {
   private url = 'https://jsonplaceholder.typicode.com/posts/';
+  private urlSwapiPeople = 'https://swapi.co/api/people/';
+  private urlSwapiFilms = 'https://swapi.co/api/films/';
 
   constructor(private http: HttpClient) {}
+
+  getPerson(personID: number): Observable<object> {
+    return this.http.get<object>(this.urlSwapiPeople + personID);
+  }
+
+  getFilm(FilmID: number): Observable<object> {
+    return this.http.get<object>(this.urlSwapiFilms + FilmID);
+  }
 
   getPosts(): Observable<Array<Post>> {
     return this.http.get<Array<Post>>(this.url);

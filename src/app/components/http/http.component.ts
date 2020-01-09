@@ -18,11 +18,32 @@ export class HttpComponent implements OnInit {
   public MyPost = '';
   public MyUserPosts = [];
   public HttpText = 'Tekst pochodzący z Http Component';
+  public MySwapi: object = {};
+  public userID;
+  public ListOfFilms = [];
+  public ListOfIDs = [];
+
 
   ngOnInit() {
   }
   sendText() {
     this.eventText.emit(this.HttpText);
+  }
+
+  getActor() {
+    this.httpService.getPerson(this.userID).subscribe(Swapi => {
+      this.MySwapi = Swapi;
+      this.ListOfIDs = [];
+      this.ListOfFilms = [];
+      for (const film of Swapi.films) {
+        this.ListOfIDs.push(film.slice(-2));
+      }
+      for (const id of this.ListOfIDs) {
+        this.httpService.getFilm(id).subscribe(SwapiFilm => {
+          this.ListOfFilms.push(SwapiFilm.title);
+        });
+      }
+    });
   }
 
   getPosts() {

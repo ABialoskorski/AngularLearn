@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   appText = 'Tekst z App Component';
-  ChildText = ''
+  ChildText = '';
+
   httpEvent(text): void {
     this.ChildText = text;
   }
