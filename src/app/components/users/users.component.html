@@ -1,1 +1,7 @@
-<p>users works!</p>
+<p>Lista użytkowników:</p>
+<div *ngFor="let user of users">
+  <p>ID: {{user.id}}, Imię: {{user.name}}</p>
+  <a [routerLink]="['/users/', user.id, user.name]">
+    <button>Szczegóły o {{user.name}}</button>
+  </a>
+</div>

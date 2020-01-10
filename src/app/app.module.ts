@@ -8,19 +8,21 @@ import {HttpServiceService} from './components/Service/http-service.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { UsersComponent } from './components/users/users.component';
+import { UserComponent } from './components/users/user/user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HttpComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [HttpServiceService],
   bootstrap: [AppComponent]

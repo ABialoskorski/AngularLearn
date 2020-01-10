@@ -8,7 +8,7 @@
 <div *ngIf="(MySwapi | json) != '{}'" class="data">
   <p>Imię: {{MySwapi.name}}</p>
   <p>Data urodzenia: {{MySwapi.birth_year}}</p>
-  <span>Filmy,w których wystąpił:</span>
+  <span>Filmy, w których wystąpił:</span>
   <ul *ngFor="let Sfilm of ListOfFilms">
     <li>{{Sfilm}}</li>
   </ul>
