@@ -3,6 +3,7 @@
   [(ngModel)]="userID"
   placeholder="numer osoby"
 />
+<span style="margin-left: 20px" *ngIf="userID">Execute Order: {{userID}}</span>
 <button (click)="getActor()">SWAPI</button>
 <div *ngIf="(MySwapi | json) != '{}'" class="data">
   <p>Imię: {{MySwapi.name}}</p>

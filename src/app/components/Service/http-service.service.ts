@@ -25,13 +25,12 @@ export class HttpServiceService {
     return this.http.get<Array<Post>>(this.url);
   }
 
-  getPost(id: number): Observable<Post> {
-    return this.http.get<Post>(this.url + id) ;
+  getPost(id: number): Observable<string> {
+    return this.http.get<string>(this.url + id) ;
   }
 
   getPostByUser(userId: number): Observable<Array<Post>> {
     const parm = new HttpParams().set('userId', userId + '');
-
     return this.http.get<Array<Post>>(this.url, {
       params: parm
     }) ;

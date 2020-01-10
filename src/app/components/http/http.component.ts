@@ -35,11 +35,13 @@ export class HttpComponent implements OnInit {
       this.MySwapi = Swapi;
       this.ListOfIDs = [];
       this.ListOfFilms = [];
+      // @ts-ignore
       for (const film of Swapi.films) {
         this.ListOfIDs.push(film.slice(-2));
       }
       for (const id of this.ListOfIDs) {
         this.httpService.getFilm(id).subscribe(SwapiFilm => {
+          // @ts-ignore
           this.ListOfFilms.push(SwapiFilm.title);
         });
       }
@@ -83,3 +85,4 @@ export class HttpComponent implements OnInit {
       });
   }
 }
+
